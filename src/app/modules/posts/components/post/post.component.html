@@ -1,0 +1,27 @@
+<div class="post p-4">
+  <div class="d-flex justify-content-between">
+    <h4 class="post__title">
+      <ng-container *ngIf="post.title">
+        {{ post.title }}
+      </ng-container>
+    </h4>
+    <div class="post__hide">
+      <button class="btn btn-outline-dark" (click)="onHidePost()">
+        Hide Post
+      </button>
+    </div>
+  </div>
+  <div class="post__desctioption">
+    {{ post.description }}
+  </div>
+  <div class="d-flex justify-content-between">
+    <div class="post__location text-muted">
+      <ng-container *ngIf="post.location">
+        {{ post.location }}
+      </ng-container>
+    </div>
+    <div class="post__location text-muted">
+      {{ post.type }}
+    </div>
+  </div>
+</div>

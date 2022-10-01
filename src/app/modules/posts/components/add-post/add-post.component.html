@@ -1,0 +1,60 @@
+<div class="row my-5">
+  <div class="col-12 my-4 text-primary">
+    <h3>Add New Post</h3>
+  </div>
+  <div class="col-12">
+    <form [formGroup]="addForm" autocomplete="off" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-6">
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            placeholder="Title"
+            formControlName="title"
+          />
+        </div>
+
+        <div class="col-md-6 mt-4 mt-md-0">
+          <input
+            class="form-control form-control-lg"
+            type="text"
+            formControlName="location"
+            placeholder="Location"
+          />
+        </div>
+        <div class="col-md-6 mt-4">
+          <textarea
+            class="form-control form-control-lg"
+            formControlName="description"
+            type="text"
+            placeholder="Description"
+            rows="3"
+          ></textarea>
+          <div
+            class="text-danger"
+            *ngIf="description.touched && description.invalid"
+          >
+            This field is required
+          </div>
+        </div>
+        <div class="col-md-6 mt-4">
+          <select class="form-select mb-3" formControlName="type">
+            <option>{{ selectDefaultValue }}</option>
+            <option *ngFor="let type of types" [value]="type">
+              {{ type }}
+            </option>
+          </select>
+          <div
+            class="text-danger"
+            *ngIf="type.touched && type.value === selectDefaultValue"
+          >
+            This field is required
+          </div>
+        </div>
+        <div class="col-12 mt-3">
+          <button class="btn btn-primary" type="submit">Add</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

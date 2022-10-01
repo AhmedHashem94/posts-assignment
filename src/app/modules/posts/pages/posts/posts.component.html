@@ -1,0 +1,8 @@
+<div class="container">
+  <app-add-post></app-add-post>
+  <app-posts-filter (onFilter)="filter($event)"></app-posts-filter>
+  <app-posts-list
+    [posts]="posts"
+    (onHide)="onHidePost($event)"
+  ></app-posts-list>
+</div>
